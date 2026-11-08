@@ -1,0 +1,24 @@
+[
+  {
+    "tipo": "PanelSolar",
+    "nombre": "Panel Solar EcoMax 450W",
+    "precio": 320000.0,
+    "stock": 15,
+    "potencia_watts": 450,
+    "eficiencia": 21.5
+  },
+  {
+    "tipo": "DispositivoEcologico",
+    "nombre": "Cargador solar portátil",
+    "precio": 45000.0,
+    "stock": 40
+  },
+  {
+    "tipo": "PanelSolar",
+    "nombre": "Panel Solar Compacto 200W",
+    "precio": 150000.0,
+    "stock": 8,
+    "potencia_watts": 200,
+    "eficiencia": 19.8
+  }
+]

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ titulo }}</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; color: #1b2a22; }
+    h1 { color: #1f7a4d; }
+    .tarjetas { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; }
+    .tarjeta { flex: 1; min-width: 220px; background: #eef7f1; border-radius: 8px; padding: 1rem; }
+    .tarjeta strong { display: block; font-size: 1.5rem; margin-top: .25rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: .5rem; border-bottom: 1px solid #d5e3da; }
+    td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+  <h1>{{ titulo }}</h1>
+
+  <div class="tarjetas">
+    <div class="tarjeta">
+      Emisiones totales
+      <strong>{{ metricas.total_emisiones_kg|floatformat:2 }} kg CO₂</strong>
+    </div>
+    <div class="tarjeta">
+      Planta de mayor consumo
+      {% if metricas.planta_mayor_consumo %}
+        <strong>{{ metricas.planta_mayor_consumo }}</strong>
+        {{ metricas.consumo_mayor_kwh|floatformat:2 }} kWh acumulados
+      {% else %}
+        <strong>Sin datos</strong>
+      {% endif %}
+    </div>
+  </div>
+
+  <h2>Detalle por planta</h2>
+  <table>
+    <thead>
+      <tr><th>Planta</th><th class="num">Consumo (kWh)</th><th class="num">Emisiones (kg CO₂)</th></tr>
+    </thead>
+    <tbody>
+      {% for fila in metricas.detalle_plantas %}
+        <tr>
+          <td>{{ fila.planta }}</td>
+          <td class="num">{{ fila.consumo_kwh|floatformat:2 }}</td>
+          <td class="num">{{ fila.emisiones_kg|floatformat:2 }}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="3">No hay registros de consumo.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
