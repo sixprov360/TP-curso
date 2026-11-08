@@ -12,13 +12,13 @@ Sanitización y análisis estadístico de lecturas térmicas de sensores.
 
 ## Estructura
 
-```
+
 app/core/limpieza.py   # Punto A
 app/core/analisis.py   # Punto B
 app/ui/reporte.py      # Impresión del reporte
 main.py                # Flujo completo de ejemplo
 tests/                 # Pruebas con pytest
-```
+
 
 ## Requisitos
 
@@ -26,19 +26,18 @@ Python 3.9 o superior.
 
 ## Instalación y uso
 
-```bash
+bash
 python -m venv venv
-venv\Scripts\activate        # Windows
-# source venv/bin/activate   # Linux/Mac
+venv\Scripts\activate        
 pip install -r requirements.txt
 python main.py
-```
+
 
 ## Tests
 
-```bash
+bash
 python -m pytest
-```
+
 
 ## Decisiones de diseño
 
